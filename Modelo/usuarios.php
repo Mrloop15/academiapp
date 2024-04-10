@@ -65,8 +65,12 @@ class Usuario{
     
     //Método para conectar a la tabla usuario de la BD
     private function EstableceConexion(){
+<<<<<<< HEAD
+        $this->conexion = mysqli_connect('127.0.0.1:3306','adiaz','JF1HLewKzGn!nWxf');
+=======
         //$this->conexion = mysqli_connect('127.0.0.1:8889','llopez','12345');
         $this->conexion = mysqli_connect('127.0.0.1:3306','remoto','Maizdorado69');
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
         
         if(!$this->conexion){
             echo "La conexion no se ha podido establecer.<br>";
@@ -125,7 +129,11 @@ class Usuario{
     public function buscarUsuario(){
         //1-Definir la instruccion SQL de consulta
         //select * from alumnos order by apellidos;
+<<<<<<< HEAD
+        $consulta = "SELECT nombre, apellido, CorreoElectronico, UserName, Contrasena FROM usuario where UserName='".$this->getUserName()."';";
+=======
         $consulta = "SELECT UserID, nombre, apellido, CorreoElectronico, UserName, Contrasena FROM usuario where UserName='".$this->getUserName()."';";
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
         //echo $consulta."<br>";
         echo '<script>alert('.$consulta.')</script>';
         

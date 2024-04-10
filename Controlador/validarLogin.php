@@ -1,15 +1,25 @@
 <?php
 
 session_start();
+<<<<<<< HEAD
+print_r($_POST);
+=======
 //print_r($_POST);
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
 //variables que pasamos del formulario de Login.php
 $UserName=$_POST['usuario'];
 $password=$_POST['contrasena'];
 
 
+<<<<<<< HEAD
+/*echo "Se reciben los siguientes datos: <br>";
+echo "Usuario recibido: ".$UserName."<br>";
+echo "Contraseña recibida: ".$password."<br>"; */
+=======
 //echo "Se reciben los siguientes datos: <br>";
 //echo "Usuario recibido: ".$usuario."<br>";
 //echo "Contraseña recibida: ".$password."<br>";
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
 
 //Validar si están vacios
 /*if($UserName=='' || $password==''){

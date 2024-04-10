@@ -2,7 +2,11 @@
 <html>
 <head>
     <?php
+<<<<<<< HEAD
+    /*include '../Controlador/seguridadLogin.php';*/
+=======
     include '../Controlador/seguridadLogin.php';
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
     ?>
 	<meta charset="utf-8">
 	<title>Proyecto EPA</title>
@@ -29,17 +33,29 @@
                 //Generamos una instancia de la clase Alumnos
                 $usuario = new Usuario();
                 //Registramos datos en el objeto
+<<<<<<< HEAD
+                $usuario->setNombre($_POST['nombre']);
+                $usuario->setApellidos($_POST['apellidos']);
+                $usuario->setCorreoElectronico($_POST['correoelectronico']);
+                $usuario->setUserName($_POST['username']);
+                $usuario->setContrasena($_POST['contrasena']);
+=======
                 $usuario->setCuenta($_POST['cuenta']);
                 $usuario->setContrasena($_POST['contrasena']);
                 $usuario->setNombre($_POST['nombre']);
                 $usuario->setApellidos($_POST['apellidos']);
                 $usuario->setEstatus($_POST['estatus']);
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
                 //Llamada al método para registrar valores
                 $usuario->registrarUsuario();
                 //Mensaje informativo
                 echo '<script>alert("Usuario '.$usuario->getCuenta().' registrado.");</script>';
                 //Dirigir a la página principal
+<<<<<<< HEAD
+                echo '<script>window.location.replace("Proyecto_final/Login/index.php");</script>';
+=======
                 echo '<script>window.location.replace("../Formularios/frmUsuariosRegistro.php");</script>';
+>>>>>>> ed5bedc7bcd680e5510cd0f769629a92ebdad600
             }//enviarRegAlum
             
         //Efectuar la operación ACTUALIZAR
