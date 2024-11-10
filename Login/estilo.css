@@ -317,9 +317,10 @@ body{
     cursor: pointer;
   } 
 
-  /* botones */    
+  /* botones */   
+
    button:active {
-    color: rgb(255, 255, 255);
+    color: rgb(249, 83, 255);
     box-shadow: 0 0.2rem #dfd9d9;
     transform: translateY(0.2rem);
    }

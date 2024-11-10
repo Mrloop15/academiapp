@@ -71,10 +71,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <title>Buscar evento</title>
+    <title>Tareas academiapp</title>
 </head>
 
-<body id="formCalendario"style= "overflow:auto; ">
+<body id="formCalendario"style= "overflow:auto;">
 <header>
 <?php
   include '../menu.php';
@@ -86,24 +86,24 @@
 <main class="contenido">
   <div class="principal">
     <div class="containerMenuCalendario" id="containerMenuCalendario">
-      <div id="crear" >
-        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmCalendario.php">Agregar</a>
+    <div id="crear" >
+        <a href="../Formularios/frmTareas.php">Agregar</a>
       </div>
       <div id="buscar">
-        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmCalendarioBuscar.php">Buscar</a>
+        <a href="..f/Formularios/frmTareasBuscar.php">Todas mis tareas</a>
       </div>
       <div  id="eliminar"> 
         <a href="">Eliminar</a>
       </div>
     </div>
   <div class="container">
-        <h2>Búsqueda de Eventos Escolares</h2>
-          <form action="procesar_registro_evento.php" method="POST">
+        <h2>Búsqueda de Tareas</h2>
+          <form action="procesar_registro_materia.php" method="POST">
               <div class="form-group">
-                  <label for="nombre">Titulo Del Evento:</label><br>
-                  <input type="text" id="Titulo" name="Titulo" required style="border-radius: 20px;">
+                  <label for="nombre">Titulo de la tarea:</label><br>
+                  <input type="text" id="id" name="id" required style="border-radius: 20px;">
               </div>
-              <button class="flip-card__btn" id="enviarTarea" name="enviarTarea">ENVIAR</button>
+              <input type="submit" value="Buscar Tarea">
           </form>
         
   </div>

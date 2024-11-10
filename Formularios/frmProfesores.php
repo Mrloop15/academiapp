@@ -56,14 +56,58 @@
       a:hover{
         color: white;
       }
+
+      a:activate{
+        color: #a901f1;
+      }
+      
       
     }
 
     }
+
+   /* botones */   
+
+   .flip-card__btn:active, .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
+  .flip-card__btn {
+    margin: 20px 0 20px 0;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #f4a0fff0;
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+  } 
+
+
+   button:active {
+    color: rgb(249, 83, 255);
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+   }
+   
+   button:hover:not(:disabled) {
+    background: lightcoral;
+    color: white;
+    text-shadow: 0 0.1rem #0e0d0d;
+   }
+   
+   button:disabled {
+    cursor: auto;
+    color: grey;
+   }
 </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../inicio/principal.css">
     <link rel="stylesheet" href="../css/calendario.css">
     <link rel="stylesheet" href="../Formularios/custom.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -73,37 +117,13 @@
     <title>Registro profesores Academiapp</title>
 </head>
 
-<body id="formCalendario" style= "overflow:auto;  background: #F5F5F5">
+<body id="formCalendario" style= "overflow:auto; ">
 <header>
-  <nav>
-      <div class="navbar">
-        <div class="container nav-container">
-        <input class="checkbox" type="checkbox" name="" id="" />
-            <div class="hamburger-lines">
-              <span class="line line1"></span>
-              <span class="line line2"></span>
-              <span class="line line3"></span>
-            </div>  
-          <div class="logo">
-            <h1>Academiapp</h1>
-          </div>
-          <div class="menu-items">
-            <h4>Principal</h4>
-            <li><a href="/Proyecto_final/inicio/principal.php">Inicio</a></li>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmCalendario.php">Calendario</a></li>
-            <li><a href="#">Horario</a></li>
-            <hr>
-            <h4>Academico</h4>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmMaterias.php">Materias</a></li>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmProfesores.php">Profesores</a></li>
-            <li><a href="#">Calificaciones</a></li>
-            <li><a href="#">Notas</a></li>
-            <hr>
-            <li ><a href="http://localhost/Proyecto_final/Login/index.php"><h4>Cerrar sesión</h4></a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<?php
+  include '../menu.php';
+  $menu = new menuPrincipal();
+  $menu ->barraMenu();
+  ?>
 </header>
 
 
@@ -111,7 +131,7 @@
   <div class="principal">
     <div class="containerMenuCalendario" id="containerMenuCalendario">
       <div id="crear" >
-        <a href="http://localhost/Proyecto_final/Formularios/frmProfesores.php">Agregar</a>
+        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmProfesores.php">Agregar</a>
       </div>
       <div id="buscar">
         <a href="frmBuscarProfesores.php">Buscar</a>
@@ -122,33 +142,33 @@
     </div>
   <div class="container">
             <h2>Registro profesores</h2>
-            <form action="procesar_registro_profesor.php" method="POST">
-                <div class="form-group">
-                    <label for="nombre">ID del Profesor:</label><br>
-                    <input type="text" id="idProfesor" name="idProfesor" required style="border-radius: 20px;">
-                </div>
+            <form action="http://localhost/Proyecto_final/academiapp/Controlador/procesarMovimientoProfesores.php" method="POST" >
                 <div class="form-group">
                     <label for="nombre">Nombre del Profesor:</label><br>
-                    <input type="text" id="nombreProfesor" name="nombreProfesor" required style="border-radius: 20px;">
+                    <input type="text" id="Nombre" name="Nombre" required style="border-radius: 20px;">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Apellido del Profesor:</label><br>
+                    <input type="text" id="Apellido" name="Apellido" required style="border-radius: 20px;">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Materia principal que imparte:</label><br>
-                    <input type="text" id="materiaProfesor" name="materiaProfesor" required style="border-radius: 20px;">
+                    <input type="text" id="Materia" name="Materia" required style="border-radius: 20px;">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Número de celular:</label><br>
-                    <input type="text" id="numeroProfesor" name="numeroProfesor" required style="border-radius: 20px;">
+                    <input type="text" id="Telefono" name="Telefono" required style="border-radius: 20px;">
                 </div>
                 <div class="form-group">
                     <label for="nombre">Correo institucional:</label><br>
-                    <input type="text" id="correoProfesor" name="correoProfesor" required style="border-radius: 20px;">
+                    <input type="text" id="Correo" name="Correo" required style="border-radius: 20px;">
                 </div>
                 <div class="form-group">
-                    <label for="nombre">Correo personal:</label><br>
-                    <input type="text" id="correoPersonalProfesor" name="correoPersonalProfesor" placeholder="Solo temas urgentes" required style="border-radius: 20px;">
+                    <label for="nombre">Hora de atencion:</label><br>
+                    <input type="text" id="HoraDeAtencion" name="HoraDeAtencion" required style="border-radius: 20px;">
                 </div>
                 <div style="margin-top: 20px; display: flex; justify-content: center;">
-                    <input type="submit" value="Registrar Profesor">  
+                    <button class="flip-card__btn" type="submit" id="RegProf" name="RegProf">Registrar</button>  
                 </div>
             </form>
         </div>
@@ -156,7 +176,7 @@
 </main>
 <div class="footer">
     <footer style="padding: 15px; background-color: #a901f1; text-align: center; font-size: larger;">
-        <p style="color: white;">&copy;Todo el que lea el footer es joto xd</p>
+    <p style=" color: white;">&copy;Derechos Recervados AcademiApp</p>
     </footer>
 </div>
 </body>

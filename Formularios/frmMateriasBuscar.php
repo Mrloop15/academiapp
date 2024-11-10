@@ -73,7 +73,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../inicio/principal.css">
   <link rel="stylesheet" href="../css/calendario.css">
-  <link rel="stylesheet" href="../Formularios/custom.css">
+  <link href="../Formularios/custom.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -88,7 +88,7 @@
   <title>Materias</title>
 </head>
 
-<body id="formCalendario" style="overflow:scroll; height: 70rem; background: #F5F5F5">
+<body id="formCalendario" style="overflow:auto; ">
   <header>
     <?php
   include '../menu.php';
@@ -97,66 +97,38 @@
   ?>
   </header>
 
-
   <main class="contenido">
     <div class="principal">
       <div class="containerMenuCalendario" id="containerMenuCalendario">
         <div id="crear">
-          <a href="../Formularios/frmMaterias.php">Agregar</a>
+          <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmMaterias.php">Agregar</a>
         </div>
         <div id="buscar">
-          <a href="../Formularios/frmMateriasBuscar.php">Materias</a>
+          <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmMateriasBuscar.php">Materias</a>
         </div>
         <div id="eliminar">
           <a href="">Eliminar</a>
         </div>
       </div>
       <div class="container">
-        <h2>Registro materias</h2>
+        <h2>Búsqueda de Materias</h2>
         <form action="http://localhost/Proyecto_final/academiapp/Controlador/procesarMovimientoMaterias.php"
           method="POST">
           <div class="form-group">
-            <label for="nombre">Nombre de la clase:</label><br>
+            <label for="nombre">Nombre de la materia:</label><br>
             <input type="text" id="NombreMateria" name="NombreMateria" required style="border-radius: 20px;">
           </div>
-
-          <div class="form-group">
-            <label for="fecha">Fecha de inicio:</label><br>
-            <input type="date" id="FechaInicio" name="FechaInicio" required style="border-radius: 20px;">
-          </div>
-
-          <div class="form-group">
-            <label for="fecha">Fecha de fin:</label><br>
-            <input type="date" id="FechaFin" name="FechaFin" required style="border-radius: 20px;">
-          </div>
-
-          <div class="form-group">
-            <label for="hora">Hora inicio de clase:</label><br>
-            <input type="time" id="HoraClase" name="HoraClase" required style="border-radius: 20px;">
-          </div>
-
-          <div class="form-group">
-            <label for="descripcion">Descripción de la clase:</label><br>
-            <textarea id="Descripcion" name="Descripcion" rows="4" cols="50" required
-              style="border-radius: 20px;"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="organizador">Maestro:</label><br>
-            <input type="text" id="Profesor" name="Profesor" required style="border-radius: 20px;">
-          </div>
           <div style="margin-top: 20px; display: flex; justify-content: center;">
-            <button type="submit" id="RegMat" name="RegMat">Registrar</button>
+            <button class="flip-card__btn" type="submit" id="BuscarMat" name="BuscarMat">Consultar</button>
           </div>
-          <!-- <input type="submit" value="Registrar materia nueva"> -->
+          <!--  <input type="submit" value="Buscar materia">  -->
         </form>
-
 
       </div>
   </main>
   <div class="footer">
     <footer style="padding: 15px; background-color: #a901f1; text-align: center; font-size: larger;">
-      <p style=" color: white;">&copy;Todo el que lea el footer es joto xd</p>
+      <p style=" color: white;">&copy;Derechos Recervados AcademiApp</p>
     </footer>
   </div>
 </body>

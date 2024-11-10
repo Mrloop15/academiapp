@@ -1,46 +1,62 @@
 <?php
 
-//Esta clase almacenrá la información proveniente del formulario, para posteriormente conectar a la BD y realizar la operación CRUD (agregar-C-, consultar-R-, actualizar-U- y eliminar-D)correspondiente
-
-class Usuario{
+class Profesores{
     //Atributos(igual que los campos de la tabla)
+    private $ProfesorID;
     private $Nombre;
     private $Apellido;
-    private $CorreoElectronico;
-    private $UserName;
-    private $Contrasena;
+    private $Materia;
+    private $Telefono;
+    private $Correo;
+    private $HoraDeAtencion;
     //Atributo de conectividad con la BD
     private $conexion;
-    
+
     //Métodos
     //-Constructor
     public function _construct(){
+        $this->ProfesorID="none";
         $this->Nombre="none";
         $this->Apellido="none";
-        $this->CorreoElectronico="none";
-        $this->UserName="none";
-        $this->Contrasena="none";
+        $this->Materia="none";
+        $this->Telefono="none";
+        $this->Correo="none";
+        $this->HoraDeAtencion="none";
+        
     }
     
     //Set's y Get's
-    public function setNombre($nombre){
-        $this->Nombre = $nombre;
+    public function setProfesorID($ProfesorID){
+        $this->ProfesorID = $ProfesorID;
+    }
+
+    public function setNombre($Nombre){
+        $this->Nombre = $Nombre;
     }
     
-    public function setApellido($apellido){
-        $this->Apellido = $apellido;
+    public function setApellido($Apellido){
+        $this->Apellido = $Apellido;
+    }
+
+    public function setMateria($Materia){
+        $this->Materia = $Materia;
     }
     
-    public function setCorreoElectronico($correoelectronico){
-        $this->CorreoElectronico = $correoelectronico;
+    public function setTelefono($Telefono){
+        $this->Telefono = $Telefono;
     }
     
-    public function setUserName($username){
-        $this->UserName = $username;
+    public function setCorreo($Correo){
+        $this->Correo = $Correo;
+    }
+
+    public function setHoraDeAtencion($HoraDeAtencion){
+        $this->HoraDeAtencion = $HoraDeAtencion;
     }
     
-    public function setContrasena($Contrasena){
-        $this->Contrasena = $Contrasena;
+
+    public function getProfesorID(){
+        return $this->ProfesorID;
     }
     
     public function getNombre(){
@@ -50,18 +66,23 @@ class Usuario{
     public function getApellido(){
         return $this->Apellido;
     }
-    
-    public function getCorreoElectronico(){
-        return $this->CorreoElectronico;
+
+    public function getMateria(){
+        return $this->Materia;
     }
     
-    public function getUserName(){
-        return $this->UserName;
+    public function getTelefono(){
+        return $this->Telefono;
     }
     
-    public function getContrasena(){
-        return $this->Contrasena;
+    public function getCorreo(){
+        return $this->Correo;
     }
+
+    public function getHoraDeAtencion(){
+        return $this->HoraDeAtencion;
+    }
+    
     
     //Método para conectar a la tabla usuario de la BD
     private function EstableceConexion(){
@@ -75,10 +96,10 @@ class Usuario{
     }//EstableceConexion
     
     //Método para REGISTRAR información en la tabla alumnos
-    public function registrarUsuario(){
+    public function registrarProfesor(){
         //1-Definir la instruccion SQL de inserción
         //insert into alumnos (matricula, nombre, apellidos, promedio, estatus) values (12345,'Luis','Lopez',8.2, 1);
-        $registrar = "INSERT INTO usuario (Nombre, Apellido, CorreoElectronico, UserName, Contrasena) values ('".$this->getNombre()."','".$this->getApellido()."','".$this->getCorreoElectronico()."','".$this->getUserName()."','".$this->getContrasena()."');";
+        $registrar = "INSERT INTO profesores (Nombre, Apellido, Materia, Telefono, Correo, HoraDeAtencion) values ('".$this->getNombre()."','".$this->getApellido()."','".$this->getMateria()."','".$this->getTelefono()."','".$this->getCorreo()."','".$this->getHoraDeAtencion()."');";
         //echo $registrar."<br>";
         
         //2-Establecer conexión con la BD
@@ -91,16 +112,35 @@ class Usuario{
         mysqli_close($this->conexion);
         
         //5-Mensaje informativo
-        echo "Usuario registrado.<br>";
+        echo "Profesor registrado.<br>";
     }//registrarAlumno
-    
+
+    //Método para CONSULTAR TODOS los registros de la tabla
+    public function consultarProfesores(){
+        //1-Definir la instruccion SQL de consulta
+        //select * from alumnos order by apellidos;
+        $consulta = "SELECT * FROM profesores ORDER BY ProfesorID";
+        
+        //2-Establecer conexión con la BD
+        $this->EstableceConexion();
+        
+        //3-Ejecutar la instrucción SQL en la conexion (BD)
+        $resultado = mysqli_query($this->conexion,$consulta);
+        
+        //4-Cierro la conexión con la BD
+        mysqli_close($this->conexion);
+        
+        //5-Retorna los datos de la consulta
+        return $resultado;
+    }//consultaAlumnos
+
     //Método para ACTUALIZAR información de la tabla alumnos
-    public function actualizarUsuario(){
+    public function actualizaProfesor(){
         //Evaluar que existan datos por actualizar
-        if($this->getUserName() != 0){
+        if($this->getNombre() != ''){
             //1-Definir la instruccion SQL de actualización
             //update alumnos set nombre='María', apellidos='Gonzalez', promedio=9.3 where matricula=12345;
-            $actualizar = "update usuario set nombre='".$this->getNombre()."', apellidos='".$this->getApellido();
+            $actualizar = "UPDATE profesores SET Nombre='".$this->getNombre()."', Apellido='".$this->getApellido()."', Materia='".$this->getMateria()."', Telefono='".$this->getTelefono()."', Correo='".$this->getCorreo()."', HoraDeAtencion='".$this->getHoraDeAtencion()."' WHERE Nombre='".$this->getNombre()."';";
             //echo $actualizar."<br>";
 
             //2-Establecer conexión con la BD
@@ -113,20 +153,19 @@ class Usuario{
             mysqli_close($this->conexion);
 
             //5-Mensaje informativo
-            echo "Alumno modificado.";
+            echo "Profesor modificado.";
         }else {
-            echo "Sin definir matricula por actualizar.";
+            echo "Sin definir profesor por actualizar.";
         }
         
     }//actualizaAlumno
-    
-    //Método para BUSCAR usuario por cuenta y contraseña
-    public function buscarUsuario(){
+
+    //Método para CONSULTAR(BUSQUEDA) alumno por MATRICULA
+    public function BuscarProfesores(){
         //1-Definir la instruccion SQL de consulta
         //select * from alumnos order by apellidos;
-        $consulta = "SELECT UserID, nombre, apellido, CorreoElectronico, UserName, Contrasena FROM usuario where UserName='".$this->getUserName()."';";
+        $consulta = "SELECT * from profesores WHERE Nombre='".$this->getNombre()."';";
         //echo $consulta."<br>";
-        echo '<script>alert('.$consulta.')</script>';
         
         //2-Establecer conexión con la BD
         $this->EstableceConexion();
@@ -140,31 +179,12 @@ class Usuario{
         //5-Retorna los datos de la consulta
         return $resultado;
     }//consultaAlumnos
-    
-    //Método para CONSULTAR TODOS los registros de la tabla
-    public function consultarUsuarios(){
-        //1-Definir la instruccion SQL de consulta
-        //select * from alumnos order by apellidos;
-        $consulta = "select matricula, nombre, apellidos, promedio from alumnos where estatus = 1 order by apellidos";
-        
-        //2-Establecer conexión con la BD
-        $this->EstableceConexion();
-        
-        //3-Ejecutar la instrucción SQL en la conexion (BD)
-        $resultado = mysqli_query($this->conexion,$consulta);
-        
-        //4-Cierro la conexión con la BD
-        mysqli_close($this->conexion);
-        
-        //5-Retorna los datos de la consulta
-        return $resultado;
-    }//consultaAlumnos
-    
+
     //Método para BORRAR (cambiar status) información de la tabla alumnos
-    public function borrarUsuarios(){
+    public function borrarProfesor(){
         //1-Definir la instruccion SQL de consulta
         //update alumnos set estatus=2 where matricula=12345;
-        $borrar = "update usuario set estatus = 2 where cuenta=".$this->getCuenta().";";
+        $borrar = "DELETE FROM profesores WHERE Nombre='".$this->getNombre()."';";
         //print_r($borrar);
         
         //2-Establecer conexión con la BD
@@ -176,8 +196,8 @@ class Usuario{
         //4-Cierro la conexión con la BD
         mysqli_close($this->conexion);
 
+        
         //5-Mensaje informativo
-        echo "Alumno dado de baja.";
+        echo "Profesor eliminado.";
     }//borrarAlumno
-    
-}//class
+}

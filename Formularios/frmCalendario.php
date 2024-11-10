@@ -64,9 +64,10 @@
 </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../inicio/principal.css">
     <link rel="stylesheet" href="../css/calendario.css">
     <link rel="stylesheet" href="../Formularios/custom.css">
+    <link rel="stylesheet" href="../Login/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -74,37 +75,13 @@
     <title>Calendario Academiapp</title>
 </head>
 
-<body id="formCalendario" style= "overflow:auto;  background: #F5F5F5">
+<body id="formCalendario" style= "overflow:auto;">
 <header>
-  <nav>
-      <div class="navbar">
-        <div class="container nav-container">
-        <input class="checkbox" type="checkbox" name="" id="" />
-            <div class="hamburger-lines">
-              <span class="line line1"></span>
-              <span class="line line2"></span>
-              <span class="line line3"></span>
-            </div>  
-          <div class="logo">
-            <h1>Academiapp</h1>
-          </div>
-          <div class="menu-items">
-            <h4>Principal</h4>
-            <li><a href="/Proyecto_final/inicio/principal.php">Inicio</a></li>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmCalendario.php">Calendario</a></li>
-            <li><a href="#">Horario</a></li>
-            <hr>
-            <h4>Academico</h4>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmMaterias.php">Materias</a></li>
-            <li><a href="http://localhost/Proyecto_final/Formularios/frmProfesores.php">Profesores</a></li>
-            <li><a href="#">Calificaciones</a></li>
-            <li><a href="#">Notas</a></li>
-            <hr>
-            <li ><a href="http://localhost/Proyecto_final/Login/index.php"><h4>Cerrar sesión</h4></a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<?php
+  include '../menu.php';
+  $menu = new menuPrincipal();
+  $menu ->barraMenu();
+  ?>
 </header>
 
 
@@ -112,7 +89,7 @@
   <div class="principal">
     <div class="containerMenuCalendario" id="containerMenuCalendario">
       <div id="crear" >
-        <a href="http://localhost/Proyecto_final/Formularios/frmCalendario.php">Agregar</a>
+        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmCalendario.php">Agregar</a>
       </div>
       <div id="buscar">
         <a href="frmCalendarioBuscar.php">Buscar</a>
@@ -123,43 +100,39 @@
     </div>
   <div class="container">
         <h2>Registro de Eventos Escolares</h2>
-        <form action="procesar_registro_evento.php" method="POST">
-            <div class="form-group">
-                <label for="nombre">Id del evento:</label><br>
-                <input type="text" id="id" name="id" required style="border-radius: 20px;">
-            </div>
+        <form action="http://localhost/Proyecto_final/academiapp/Controlador/procesarMovimientoEventos.php" method="POST">
 
             <div class="form-group">
                 <label for="nombre">Nombre del Evento:</label><br>
-                <input type="text" id="nombre" name="nombre" required style="border-radius: 20px;">
+                <input type="text" id="Titulo" name="Titulo" required style="border-radius: 20px;">
             </div>
 
             <div class="form-group">
                 <label for="fecha">Fecha del Evento:</label><br>
-                <input type="date" id="fecha" name="fecha" required style="border-radius: 20px;">
+                <input type="date" id="FechaInicio" name="FechaInicio" required style="border-radius: 20px;">
             </div>
 
             <div class="form-group">
                 <label for="hora">Hora del Evento:</label><br>
-                <input type="time" id="hora" name="hora" required style="border-radius: 20px;">
+                <input type="time" id="HoraEvento" name="HoraEvento" required style="border-radius: 20px;">
             </div>
 
             <div class="form-group">
                 <label for="descripcion">Descripción del Evento:</label><br>
-                <textarea id="descripcion" name="descripcion" rows="4" cols="50" required style="border-radius: 20px;"></textarea>
+                <textarea id="Descripcion" name="Descripcion" rows="4" cols="50" required style="border-radius: 20px;"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="lugar">Lugar del Evento:</label><br>
-                <input type="text" id="lugar" name="lugar" required style="border-radius: 20px;">
+                <input type="text" id="Lugar" name="Lugar" required style="border-radius: 20px;">
             </div>
 
             <div class="form-group">
                 <label for="organizador">Organizador del Evento:</label><br>
-                <input type="text" id="organizador" name="organizador" required style="border-radius: 20px;">
+                <input type="text" id="Organizador" name="Organizador" required style="border-radius: 20px;">
             </div>
 
-            <input type="submit" value="Registrar Evento">
+            <button class="flip-card__btn" id="enviarEvento" name="enviarEvento">ENVIAR</button>
         </form>
 
         
@@ -167,7 +140,7 @@
 </main>
 <div class="footer">
 <footer style="padding: 15px; background-color: #a901f1; text-align: center; font-size: larger;">
-  <p style=" color: white;">&copy;Todo el que lea el footer es joto xd</p>
+<p style=" color: white;">&copy;Derechos Recervados AcademiApp</p>
 </footer>
 </div>
 </body>

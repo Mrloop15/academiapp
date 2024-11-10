@@ -66,15 +66,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../inicio/principal.css">
     <link rel="stylesheet" href="../css/calendario.css">
+    <link rel="stylesheet" href="../Login/estilo.css">
     <link href="../Formularios/custom.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <title>Buscar evento</title>
+    <title>Tareas academiapp</title>
 </head>
 
-<body id="formCalendario"style= "overflow:auto; ">
+<body id="formCalendario"style= "overflow:auto;">
 <header>
 <?php
   include '../menu.php';
@@ -84,26 +85,22 @@
 </header>
 
 <main class="contenido">
-  <div class="principal">
-    <div class="containerMenuCalendario" id="containerMenuCalendario">
-      <div id="crear" >
-        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmCalendario.php">Agregar</a>
-      </div>
-      <div id="buscar">
-        <a href="http://localhost/Proyecto_final/academiapp/Formularios/frmCalendarioBuscar.php">Buscar</a>
-      </div>
-      <div  id="eliminar"> 
-        <a href="">Eliminar</a>
-      </div>
-    </div>
+  
+    <h2>En este apartado podrás generar notas de forma rápida, como recordatorios o cualquier asunto
+        de manera urgente sobre alguna materia.
+    </h2>
+
   <div class="container">
-        <h2>Búsqueda de Eventos Escolares</h2>
-          <form action="procesar_registro_evento.php" method="POST">
+          <form action="http://localhost/Proyecto_final/academiapp/Controlador/procesarMovimientoNotas.php" method="POST">
               <div class="form-group">
-                  <label for="nombre">Titulo Del Evento:</label><br>
-                  <input type="text" id="Titulo" name="Titulo" required style="border-radius: 20px;">
+                  <label for="nombre">Titulo:</label><br>
+                  <input type="text" id="Titulo" name="Titulo" required style="border-radius: 20px;"></input>
               </div>
-              <button class="flip-card__btn" id="enviarTarea" name="enviarTarea">ENVIAR</button>
+              <div class="form-group">
+                  <label for="nombre">Notas:</label><br>
+                  <textarea id="Nota" name="Nota" rows="4" cols="50" required style="border-radius: 20px;"></textarea>
+              </div>
+              <button class="flip-card__btn" id="enviarNota" name="enviarNota">ENVIAR</button>
           </form>
         
   </div>

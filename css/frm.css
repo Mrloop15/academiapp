@@ -1,0 +1,100 @@
+body#formCalendario > main > div > div.container{
+    margin-top: inherit;
+    max-width: 800px;
+    border-radius: 2rem;
+
+   }
+
+   .containerMenuCalendario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .containerMenuCalendario div {
+    font-size: 16px; /* Tamaño de fuente inicial */
+    transition: all 0.6s ease; /* Transición suave */
+  }
+
+  .containerMenuCalendario div:hover {
+    font-size: 20px; /* Tamaño de fuente aumentado */
+    transform: scale(1.1); /* Aumenta el tamaño del div */
+    color: white;
+  }
+  
+  .containerMenuCalendario div a:hover {
+    font-size: 20px; /* Tamaño de fuente aumentado */
+    transform: scale(1.1); /* Aumenta el tamaño del div */
+    color: white;
+  }
+
+    div#containerMenuCalendario{
+    display: flex;
+    flex-direction: row;
+    margin-left: 19rem;
+    
+    div{
+    margin-right: 10px;
+    padding: 1rem;
+    background: #f7b2ff;
+    border: 1px #dee2e6 solid;
+    border-radius: 20px 20px 0px 0px;
+    
+      a{
+      text-decoration: inherit;
+      color: #358b64;
+      font-size: large;
+      font-style: italic;
+      font-weight: bold;
+      }
+
+      a:hover{
+        color: white;
+      }
+      
+    }
+
+    }
+
+     /* botones */   
+
+     button{
+        justify-content: center;
+        align-items: center;
+     }
+
+   .flip-card__btn:active, .button-confirm:active {
+    box-shadow: 0px 0px var(--main-color);
+    transform: translate(3px, 3px);
+  }
+  
+  .flip-card__btn {
+    margin: 20px 0 20px 0;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: #f4a0fff0;
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+  } 
+
+
+   button:active {
+    color: rgb(249, 83, 255);
+    box-shadow: 0 0.2rem #dfd9d9;
+    transform: translateY(0.2rem);
+   }
+   
+   button:hover:not(:disabled) {
+    background: lightcoral;
+    color: white;
+    text-shadow: 0 0.1rem #0e0d0d;
+   }
+   
+   button:disabled {
+    cursor: auto;
+    color: grey;
