@@ -49,7 +49,7 @@
                 <th>Materia</th>
                 <th>Telefono</th>
                 <th>Correo</th>
-                <th>Horario De Atencion</th>
+                <th>Horario De Atención</th>
               </tr>
             </thead>
             <tbody>
